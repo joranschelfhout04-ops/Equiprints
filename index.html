@@ -1,6 +1,29 @@
 <!DOCTYPE html>
 <html lang="nl">
 <head>
+<!-- Google tag (gtag.js) — geladen, maar wacht op cookie-toestemming via Consent Mode v2 -->
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  // Standaard: alles geweigerd tot bezoeker akkoord geeft (AVG/GDPR-conform)
+  gtag('consent', 'default', {
+    'ad_storage': 'denied',
+    'ad_user_data': 'denied',
+    'ad_personalization': 'denied',
+    'analytics_storage': 'denied',
+    'wait_for_update': 500
+  });
+  gtag('js', new Date());
+  gtag('config', 'G-4KLCCLQEGS', { 'anonymize_ip': true });
+
+  // Als bezoeker eerder al akkoord gaf, meteen activeren
+  try {
+    if (localStorage.getItem('ep_cookie_consent') === 'granted') {
+      gtag('consent', 'update', { 'analytics_storage': 'granted' });
+    }
+  } catch(e){}
+</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-4KLCCLQEGS"></script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Equi Prints – Jouw merk, op elk kledingstuk.</title>
@@ -258,6 +281,27 @@ footer nav a:hover { color: white; }
 .legal-card ul { list-style: none; padding: 0; }
 .legal-card li { font-size: 14px; color: var(--muted); padding: 5px 0 5px 20px; position: relative; line-height: 1.65; }
 .legal-card li::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); opacity: .7; }
+
+/* COOKIE BANNER */
+#cookie-banner { position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 480px; z-index: 9999; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 24px 24px 20px; transform: translateY(150%); opacity: 0; transition: transform .4s cubic-bezier(0.4,0,0.2,1), opacity .3s ease; font-family: var(--font-body); }
+#cookie-banner.show { transform: translateY(0); opacity: 1; }
+.cookie-header { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.cookie-icon { width: 32px; height: 32px; border-radius: 10px; background: rgba(56,168,212,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.cookie-icon svg { width: 16px; height: 16px; stroke: var(--primary); fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+.cookie-header h3 { font-family: var(--font-display); font-size: 16px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+#cookie-banner p { font-size: 13px; color: var(--muted); line-height: 1.65; margin-bottom: 18px; }
+#cookie-banner p a { color: var(--primary); text-decoration: underline; text-underline-offset: 2px; }
+#cookie-banner p a:hover { color: var(--primary-dark); }
+.cookie-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+.cookie-actions button { flex: 1; min-width: 130px; padding: 11px 18px; border-radius: 99px; font-size: 13px; font-weight: 600; font-family: var(--font-body); cursor: pointer; border: none; transition: background var(--transition), border-color var(--transition), color var(--transition), transform var(--transition); }
+.btn-cookie-accept { background: var(--ink); color: var(--white); }
+.btn-cookie-accept:hover { background: var(--ink-soft); transform: translateY(-1px); }
+.btn-cookie-reject { background: transparent; color: var(--muted); border: 1.5px solid var(--border) !important; }
+.btn-cookie-reject:hover { color: var(--ink); border-color: rgba(15,15,18,.2) !important; }
+@media (max-width: 540px) {
+  #cookie-banner { left: 12px; right: 12px; bottom: 12px; padding: 20px; }
+  .cookie-actions button { min-width: 0; }
+}
 
 /* ANIMATIONS */
 @keyframes fadeUp { from { opacity: 0; transform: translateY(28px); } to { opacity: 1; transform: translateY(0); } }
@@ -944,7 +988,7 @@ footer nav a:hover { color: white; }
           <p class="contact-info-heading">Contactgegevens</p>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Adres</strong><p>Hombeeksesteenweg 354<br>2800 Mechelen, België</p></div></div>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1-1a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><strong>Telefoon</strong><a href="tel:+32497363487">+32 497 36 34 87</a></div></div>
-          <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><strong>E-mail</strong><a href="mailto:info@equiprints.be">info@equiprints.be</a></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><strong>E-mail</strong><a href="/cdn-cgi/l/email-protection#83eaede5ecc3e6f2f6eaf3f1eaedf7f0ade1e6"><span class="__cf_email__" data-cfemail="61080f070e21041014081113080f15124f0304">[email&#160;protected]</span></a></div></div>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><strong>Openingsuren</strong><p>Ma – Vr: 9:00 – 17:00<br>Za: Op afspraak<br>Zo: Gesloten</p></div></div>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><strong>Instagram</strong><a href="https://www.instagram.com/eq.ui_prints" target="_blank">@eq.ui_prints</a></div></div>
         </div>
@@ -1023,12 +1067,137 @@ footer nav a:hover { color: white; }
   <section class="legal-section">
     <div class="legal-inner">
       <h1>Privacybeleid</h1>
-      <p class="subtitle">Uw privacy is belangrijk voor ons.</p>
-      <div class="legal-card"><h2>1. Inleiding</h2><p>Welkom bij het privacybeleid van Equi Prints. Wij hechten grote waarde aan uw privacy en de bescherming van uw persoonsgegevens.</p></div>
-      <div class="legal-card"><h2>2. Verwerkingsverantwoordelijke</h2><p>Equi Prints, Hombeeksesteenweg 354, 2800 Mechelen. E-mail: info@equiprints.be</p></div>
-      <div class="legal-card"><h2>3. Welke gegevens verzamelen wij?</h2><ul><li>Naam en voornaam</li><li>E-mailadres</li><li>Telefoonnummer</li><li>Bedrijfsgegevens</li><li>Facturatie- en leveringsadres</li></ul></div>
-      <div class="legal-card"><h2>4. Bewaartermijnen</h2><ul><li>Bestel- en facturatiegegevens: 7 jaar</li><li>Klantcommunicatie: 2 jaar na laatste contact</li><li>Marketinggegevens: tot u uw toestemming intrekt</li></ul></div>
-      <div class="legal-card"><h2>5. Uw rechten</h2><p>U heeft recht op inzage, correctie, verwijdering en overdraagbaarheid van uw gegevens. Stuur een verzoek naar info@equiprints.be.</p></div>
+      <p class="subtitle">Laatste update: mei 2025</p>
+
+      <div class="legal-card">
+        <h2>1. Inleiding</h2>
+        <p>Equi Prints (hierna: "wij", "ons" of "onze") hecht grote waarde aan de bescherming van uw persoonsgegevens. In dit privacybeleid leggen wij uit welke gegevens wij verzamelen, waarom wij dat doen en hoe wij daarmee omgaan. Dit beleid is van toepassing op alle activiteiten van Equi Prints en onze website.</p>
+        <p>Equi Prints is een webshop gespecialiseerd in gepersonaliseerde producten zoals kleding en accessoires. Door gebruik te maken van onze website en diensten, gaat u akkoord met het verwerken van uw persoonsgegevens conform dit beleid.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>2. Verwerkingsverantwoordelijke</h2>
+        <p>De verwerkingsverantwoordelijke voor uw persoonsgegevens is:</p>
+        <ul>
+          <li><strong>Bedrijfsnaam:</strong> Equi Prints</li>
+          <li><strong>Website:</strong> www.equiprints.be</li>
+          <li><strong>Contactadres:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9bf2f5fdf4dbfeeaeef2ebe9f2f5efe8b5f9fe">[email&#160;protected]</a></li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h2>3. Welke persoonsgegevens verzamelen wij?</h2>
+        <p>Wij verzamelen de volgende persoonsgegevens wanneer u een bestelling plaatst, contact met ons opneemt of zich aanmeldt voor onze communicatie:</p>
+        <ul>
+          <li><strong>Naam:</strong> voor- en achternaam</li>
+          <li><strong>E-mailadres:</strong> voor orderbevestigingen, communicatie en nieuwsbrieven (indien u hiervoor toestemming geeft)</li>
+          <li><strong>Telefoonnummer:</strong> voor contact bij vragen over uw bestelling of levering</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h2>4. Waarom verzamelen wij uw gegevens?</h2>
+        <p>Wij verwerken uw persoonsgegevens voor de volgende doeleinden:</p>
+        <ul>
+          <li><strong>Uitvoering van de overeenkomst:</strong> het verwerken en afhandelen van uw bestellingen</li>
+          <li><strong>Klantenservice:</strong> het beantwoorden van vragen en het oplossen van problemen met betrekking tot uw bestelling</li>
+          <li><strong>Communicatie:</strong> het sturen van orderbevestigingen, verzendingsmeldingen en andere relevante informatie</li>
+          <li><strong>Direct marketing</strong> (enkel met toestemming): het sturen van nieuwsbrieven of promotionele berichten wanneer u hier uitdrukkelijk mee instemt</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h2>5. Rechtsgrond voor de verwerking</h2>
+        <p>Wij verwerken uw persoonsgegevens op basis van de volgende rechtsgronden (conform de AVG/GDPR):</p>
+        <ul>
+          <li><strong>Uitvoering van een overeenkomst:</strong> voor de verwerking van uw bestellingen</li>
+          <li><strong>Gerechtvaardigd belang:</strong> voor klantenservice en het verbeteren van onze dienstverlening</li>
+          <li><strong>Toestemming:</strong> voor het verzenden van nieuwsbrieven en marketingberichten — u kunt deze toestemming op elk moment intrekken</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h2>6. Hoe lang bewaren wij uw gegevens?</h2>
+        <p>Wij bewaren uw persoonsgegevens niet langer dan noodzakelijk voor de doeleinden waarvoor ze zijn verzameld:</p>
+        <ul>
+          <li><strong>Ordergegevens:</strong> tot 7 jaar na de transactie (wettelijke boekhoudkundige verplichting)</li>
+          <li><strong>Klantcommunicatie:</strong> tot 2 jaar na het laatste contact</li>
+          <li><strong>Marketinggegevens:</strong> totdat u uw toestemming intrekt of totdat uw account inactief is voor langer dan 3 jaar</li>
+        </ul>
+      </div>
+
+      <div class="legal-card">
+        <h2>7. Delen wij uw gegevens met derden?</h2>
+        <p>Equi Prints verkoopt uw persoonsgegevens nooit aan derden. Wij kunnen uw gegevens wel doorgeven aan:</p>
+        <ul>
+          <li><strong>Leveranciers en drukkers:</strong> voor de productie en levering van uw gepersonaliseerde bestelling</li>
+          <li><strong>Bezorgdiensten:</strong> zoals postbedrijven of koeriersdiensten voor de levering van uw pakket</li>
+          <li><strong>Betalingsdiensten:</strong> voor de veilige verwerking van uw betaling</li>
+        </ul>
+        <p>Al deze partijen handelen als verwerker en zijn contractueel verplicht om uw gegevens vertrouwelijk te behandelen en enkel te gebruiken voor de overeengekomen doeleinden.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>8. Uw rechten als betrokkene</h2>
+        <p>Op grond van de AVG/GDPR heeft u de volgende rechten met betrekking tot uw persoonsgegevens:</p>
+        <ul>
+          <li><strong>Recht op inzage:</strong> u kunt opvragen welke gegevens wij van u bewaren</li>
+          <li><strong>Recht op rectificatie:</strong> u kunt onjuiste of onvolledige gegevens laten corrigeren</li>
+          <li><strong>Recht op verwijdering:</strong> u kunt vragen uw gegevens te verwijderen ("recht om vergeten te worden")</li>
+          <li><strong>Recht op beperking:</strong> u kunt de verwerking van uw gegevens (tijdelijk) laten beperken</li>
+          <li><strong>Recht op bezwaar:</strong> u kunt bezwaar maken tegen de verwerking van uw gegevens</li>
+          <li><strong>Recht op gegevensoverdraagbaarheid:</strong> u kunt uw gegevens opvragen in een gestructureerd, leesbaar formaat</li>
+          <li><strong>Recht om toestemming in te trekken:</strong> voor verwerkingen gebaseerd op toestemming kunt u deze op elk moment intrekken</li>
+        </ul>
+        <p>Om uw rechten uit te oefenen, kunt u contact met ons opnemen via <a href="/cdn-cgi/l/email-protection#b7ded9d1d8f7d2c6c2dec7c5ded9c3c499d5d2" style="color:var(--primary);"><span class="__cf_email__" data-cfemail="11787f777e51746064786163787f65623f7374">[email&#160;protected]</span></a>. Wij reageren binnen 30 dagen op uw verzoek.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>9. Klachten</h2>
+        <p>Indien u niet tevreden bent over de manier waarop wij uw persoonsgegevens verwerken, heeft u het recht een klacht in te dienen bij de Gegevensbeschermingsautoriteit (GBA) in België: <a href="https://www.gegevensbeschermingsautoriteit.be" target="_blank" rel="noopener" style="color:var(--primary);">www.gegevensbeschermingsautoriteit.be</a> of per post op Drukpersstraat 35, 1000 Brussel.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>10. Cookies en tracking</h2>
+        <p>Onze website maakt gebruik van cookies. Een cookie is een klein tekstbestand dat bij uw eerste bezoek aan onze website wordt opgeslagen op uw apparaat. Wij gebruiken de volgende categorieën cookies:</p>
+
+        <p><strong>10.1 Functionele cookies</strong></p>
+        <p>Deze cookies zijn noodzakelijk voor de goede werking van de website, zoals het bijhouden van uw winkelwagen en inlogstatus. Zonder deze cookies werkt de website niet correct. Voor het plaatsen van functionele cookies is geen toestemming vereist.</p>
+
+        <p><strong>10.2 Analytische cookies — Google Analytics</strong></p>
+        <p>Wij maken gebruik van Google Analytics om bij te houden hoe bezoekers onze website gebruiken. De informatie die wij verzamelen omvat:</p>
+        <ul>
+          <li>Bezochte pagina's en de volgorde daarvan</li>
+          <li>Tijd doorgebracht op de website</li>
+          <li>Hoe u op onze website bent terechtgekomen (bv. via een zoekmachine of sociale media)</li>
+          <li>Globale locatiegegevens (land/regio, geen exacte locatie)</li>
+        </ul>
+        <p>Wij hebben Google Analytics zo geconfigureerd dat uw IP-adres geanonimiseerd wordt (IP-masking) en dat er geen gegevens worden gedeeld met andere Google-diensten. De verzamelde data wordt enkel gebruikt om onze website en dienstverlening te verbeteren.</p>
+        <p>Google kan deze informatie aan derden verschaffen als Google wettelijk verplicht is dit te doen, of voor zover derden de informatie namens Google verwerken. Raadpleeg het privacybeleid van Google voor meer informatie: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener" style="color:var(--primary);">policies.google.com/privacy</a>.</p>
+        <p>Voor het plaatsen van analytische cookies vragen wij uw toestemming via een cookiebanner bij uw eerste bezoek. U kunt uw toestemming op elk moment intrekken via de <a href="#" onclick="openCookieSettings(event)" style="color:var(--primary);">cookie-instellingen</a> op onze website, of via <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener" style="color:var(--primary);">tools.google.com/dlpage/gaoptout</a>.</p>
+
+        <p><strong>10.3 Bewaartermijn cookies</strong></p>
+        <p>Google Analytics-cookies worden maximaal 26 maanden bewaard. Functionele cookies worden bewaard voor de duur van uw sessie of maximaal 12 maanden. U kunt cookies op elk moment verwijderen via de instellingen van uw browser.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>11. Beveiliging van uw gegevens</h2>
+        <p>Wij nemen passende technische en organisatorische maatregelen om uw persoonsgegevens te beschermen tegen verlies, misbruik, onbevoegde toegang, openbaarmaking of wijziging. Dit omvat onder meer het gebruik van SSL-encryptie voor gegevensoverdracht via onze website en beperkte toegang tot persoonsgegevens voor medewerkers die deze nodig hebben voor hun functie.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>12. Wijzigingen in dit privacybeleid</h2>
+        <p>Equi Prints behoudt zich het recht voor dit privacybeleid te wijzigen. Bij wezenlijke wijzigingen zullen wij u hierover informeren via e-mail of via een melding op onze website. De meest recente versie van het privacybeleid is altijd beschikbaar op onze website.</p>
+      </div>
+
+      <div class="legal-card">
+        <h2>13. Contact</h2>
+        <p>Heeft u vragen of opmerkingen over dit privacybeleid of over de manier waarop wij uw persoonsgegevens verwerken? Neem dan contact met ons op:</p>
+        <ul>
+          <li><strong>E-mail:</strong> <a href="/cdn-cgi/l/email-protection#127b7c747d527763677b62607b7c66613c7077" style="color:var(--primary);"><span class="__cf_email__" data-cfemail="caa3a4aca58aafbbbfa3bab8a3a4beb9e4a8af">[email&#160;protected]</span></a></li>
+          <li><strong>Website:</strong> www.equiprints.be</li>
+        </ul>
+      </div>
     </div>
   </section>
 </div>
@@ -1086,7 +1255,7 @@ footer nav a:hover { color: white; }
         <h4>Contact</h4>
         <div class="footer-contact-item">Hombeeksesteenweg 354<br>2800 Mechelen</div>
         <div class="footer-contact-item"><a href="tel:+32497363487" style="color:inherit;text-decoration:none;">+32 497 36 34 87</a></div>
-        <div class="footer-contact-item"><a href="mailto:info@equiprints.be" style="color:inherit;text-decoration:none;">info@equiprints.be</a></div>
+        <div class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#731a1d151c331602061a03011a1d07005d1116" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="7910171f16391c080c10090b10170d0a571b1c">[email&#160;protected]</span></a></div>
       </div>
       <div>
         <h4>Openingsuren</h4>
@@ -1099,10 +1268,53 @@ footer nav a:hover { color: white; }
       <div class="footer-legal">
         <a href="#" onclick="navigate('privacybeleid')">Privacybeleid</a>
         <a href="#" onclick="navigate('algemene-voorwaarden')">Algemene Voorwaarden</a>
+        <a href="#" onclick="openCookieSettings(event)">Cookie-instellingen</a>
       </div>
     </div>
   </div>
 </footer>
+
+<!-- COOKIE BANNER -->
+<div id="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie-toestemming">
+  <div class="cookie-header">
+    <div class="cookie-icon">
+      <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"></circle><circle cx="8.5" cy="10" r=".8" fill="currentColor" stroke="none"></circle><circle cx="14" cy="9" r=".8" fill="currentColor" stroke="none"></circle><circle cx="15.5" cy="14" r=".8" fill="currentColor" stroke="none"></circle><circle cx="10" cy="15" r=".8" fill="currentColor" stroke="none"></circle></svg>
+    </div>
+    <h3>Wij gebruiken cookies</h3>
+  </div>
+  <p>Wij gebruiken analytische cookies (Google Analytics) om onze website te verbeteren. Uw IP-adres wordt geanonimiseerd. Meer info in ons <a href="#" onclick="navigate('privacybeleid');return false;">privacybeleid</a>.</p>
+  <div class="cookie-actions">
+    <button class="btn-cookie-reject" onclick="setCookieConsent('denied')">Weigeren</button>
+    <button class="btn-cookie-accept" onclick="setCookieConsent('granted')">Accepteren</button>
+  </div>
+</div>
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  function setCookieConsent(state) {
+    try { localStorage.setItem('ep_cookie_consent', state); } catch(e){}
+    if (typeof gtag === 'function') {
+      gtag('consent', 'update', { 'analytics_storage': state });
+    }
+    var b = document.getElementById('cookie-banner');
+    if (b) b.classList.remove('show');
+  }
+  function openCookieSettings(e) {
+    if (e) e.preventDefault();
+    try { localStorage.removeItem('ep_cookie_consent'); } catch(e){}
+    var b = document.getElementById('cookie-banner');
+    if (b) b.classList.add('show');
+  }
+  (function initCookieBanner(){
+    var stored = null;
+    try { stored = localStorage.getItem('ep_cookie_consent'); } catch(e){}
+    if (!stored) {
+      setTimeout(function(){
+        var b = document.getElementById('cookie-banner');
+        if (b) b.classList.add('show');
+      }, 800);
+    }
+  })();
+</script>
 
 <script>
 const pages = ['home','diensten','technieken','acties','realisaties','over-ons','contact','offerte','privacybeleid','algemene-voorwaarden'];
