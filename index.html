@@ -282,6 +282,74 @@ footer nav a:hover { color: white; }
 .legal-card li { font-size: 14px; color: var(--muted); padding: 5px 0 5px 20px; position: relative; line-height: 1.65; }
 .legal-card li::before { content: ''; position: absolute; left: 0; top: 12px; width: 6px; height: 6px; border-radius: 50%; background: var(--primary); opacity: .7; }
 
+/* PRODUCT SPECS (onder acties) */
+.specs-section { padding: 80px 40px 100px; background: var(--bg); border-top: 1px solid var(--border-light); }
+.specs-header { max-width: 720px; margin: 0 auto 56px; text-align: center; }
+.specs-header h2 { font-family: var(--font-display); font-size: clamp(28px, 3.5vw, 40px); font-weight: 800; letter-spacing: -0.02em; line-height: 1.15; margin-bottom: 14px; color: var(--ink); text-wrap: balance; }
+.specs-header p { font-size: 15px; color: var(--muted); line-height: 1.75; }
+.specs-top-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; max-width: 1000px; margin: 0 auto 56px; }
+.spec-card { background: var(--card-bg); border: 1px solid var(--border-light); border-radius: var(--radius-lg); padding: 32px; box-shadow: var(--shadow-sm); }
+.spec-card-head { display: flex; align-items: center; gap: 12px; margin-bottom: 22px; }
+.spec-card-icon { width: 38px; height: 38px; border-radius: 11px; background: rgba(56,168,212,.12); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.spec-card-icon svg { width: 18px; height: 18px; stroke: var(--primary); fill: none; stroke-width: 1.75; stroke-linecap: round; stroke-linejoin: round; }
+.spec-card-head h3 { font-family: var(--font-display); font-size: 19px; font-weight: 700; letter-spacing: -0.01em; color: var(--ink); }
+.model-list { display: flex; flex-direction: column; gap: 1px; background: var(--border-light); border-radius: 12px; overflow: hidden; }
+.model-row { background: var(--white); display: grid; grid-template-columns: 1fr auto; gap: 16px; padding: 14px 16px; align-items: center; transition: background var(--transition); }
+.model-row:hover { background: var(--bg-warm); }
+.model-row .model-name { font-size: 14px; font-weight: 600; color: var(--ink); }
+.model-row .model-code { font-family: var(--font-display); font-size: 12px; font-weight: 700; color: var(--primary); letter-spacing: .03em; background: rgba(56,168,212,.1); padding: 4px 10px; border-radius: 6px; white-space: nowrap; }
+.print-rules { display: flex; flex-direction: column; gap: 12px; margin-bottom: 16px; }
+.print-rule { display: flex; gap: 14px; align-items: flex-start; padding: 14px 16px; background: var(--bg-warm); border-radius: 12px; }
+.print-rule-loc { width: 44px; height: 44px; border-radius: 10px; background: var(--white); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+.print-rule-loc svg { width: 22px; height: 22px; stroke: var(--ink); fill: none; stroke-width: 1.5; stroke-linecap: round; stroke-linejoin: round; }
+.print-rule-text strong { display: block; font-size: 14px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
+.print-rule-text p { font-size: 13px; color: var(--muted); margin: 0; line-height: 1.5; }
+.print-note { font-size: 12px; color: var(--muted); line-height: 1.65; padding: 12px 14px; background: rgba(56,168,212,.06); border-radius: 10px; border-left: 3px solid var(--primary); }
+.specs-block { max-width: 1000px; margin: 0 auto 56px; }
+.specs-block:last-child { margin-bottom: 0; }
+.specs-block-title { font-family: var(--font-display); font-size: 22px; font-weight: 800; letter-spacing: -0.01em; margin-bottom: 6px; color: var(--ink); }
+.specs-block-sub { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+.size-grid { display: flex; flex-direction: column; gap: 16px; }
+.size-card { background: var(--card-bg); border: 1px solid var(--border-light); border-radius: var(--radius); padding: 24px; box-shadow: var(--shadow-sm); }
+.size-card-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 20px; gap: 8px; padding-bottom: 16px; border-bottom: 1px solid var(--border-light); }
+.size-card-head strong { font-family: var(--font-display); font-size: 17px; font-weight: 700; color: var(--ink); letter-spacing: -0.01em; }
+.size-card-head span { font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: .05em; color: var(--primary); background: rgba(56,168,212,.1); padding: 4px 10px; border-radius: 6px; }
+.size-card-body { display: flex; gap: 28px; align-items: center; }
+.size-diagram { flex-shrink: 0; width: 130px; }
+.size-diagram svg { width: 100%; height: auto; display: block; }
+.size-diagram svg .gline { stroke: var(--muted-light); stroke-width: 1; fill: none; }
+.size-diagram svg .gtext { font-family: var(--font-display); font-size: 11px; font-weight: 700; fill: var(--muted); }
+.size-diagram svg .gshape { stroke: var(--ink); stroke-width: 1.4; fill: none; stroke-linejoin: round; stroke-linecap: round; }
+.size-card-body .size-table-wrap { flex: 1; min-width: 0; }
+@media (max-width: 640px) {
+  .size-card-body { flex-direction: column; align-items: center; gap: 18px; }
+  .size-diagram { width: 150px; }
+}
+.size-table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.size-table { width: 100%; border-collapse: collapse; font-family: var(--font-body); font-size: 12.5px; min-width: 460px; }
+.size-table th, .size-table td { text-align: center; padding: 8px 4px; border-bottom: 1px solid var(--border-light); }
+.size-table th { font-family: var(--font-display); font-size: 11px; font-weight: 700; color: var(--muted-light); text-transform: uppercase; letter-spacing: .05em; }
+.size-table th:first-child, .size-table td:first-child { text-align: left; font-weight: 600; color: var(--ink); padding-left: 4px; min-width: 110px; }
+.size-table td:first-child { font-size: 12px; }
+.size-table tr:last-child td { border-bottom: none; }
+.size-table .label-letter { display: inline-block; width: 18px; height: 18px; border-radius: 4px; background: var(--ink); color: var(--white); font-family: var(--font-display); font-size: 10px; font-weight: 800; text-align: center; line-height: 18px; margin-right: 6px; }
+.color-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); gap: 10px; }
+.color-swatch { display: flex; flex-direction: column; gap: 8px; padding: 10px; background: var(--white); border: 1px solid var(--border-light); border-radius: 12px; transition: box-shadow var(--transition), transform var(--transition); }
+.color-swatch:hover { box-shadow: var(--shadow-sm); transform: translateY(-2px); }
+.color-chip { width: 100%; height: 48px; border-radius: 8px; border: 1px solid rgba(15,15,18,.06); }
+.color-swatch span { font-size: 11.5px; font-weight: 500; color: var(--ink); line-height: 1.3; }
+.color-restriction { margin-top: 18px; padding: 14px 16px; background: rgba(244,145,42,.08); border-radius: 12px; border-left: 3px solid var(--primary); font-size: 13px; color: var(--ink); line-height: 1.65; }
+.color-restriction strong { display: block; font-weight: 700; margin-bottom: 6px; font-size: 13px; }
+.color-restriction-chips { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 8px; }
+.color-restriction-chips .mini-chip { display: inline-flex; align-items: center; gap: 6px; background: var(--white); border: 1px solid var(--border-light); padding: 3px 10px 3px 4px; border-radius: 99px; font-size: 11.5px; color: var(--muted); }
+.color-restriction-chips .mini-chip .mini-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(15,15,18,.1); }
+
+@media (max-width: 768px) {
+  .specs-top-grid { grid-template-columns: 1fr; }
+  .size-grid { grid-template-columns: 1fr; }
+  .specs-section { padding: 60px 24px 80px; }
+}
+
 /* COOKIE BANNER */
 #cookie-banner { position: fixed; bottom: 20px; left: 20px; right: 20px; max-width: 480px; z-index: 9999; background: var(--white); border: 1px solid var(--border); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 24px 24px 20px; transform: translateY(150%); opacity: 0; transition: transform .4s cubic-bezier(0.4,0,0.2,1), opacity .3s ease; font-family: var(--font-body); }
 #cookie-banner.show { transform: translateY(0); opacity: 1; }
@@ -888,7 +956,7 @@ footer nav a:hover { color: white; }
             </ul>
             <div class="actie-price-row">
               <div class="actie-price">€319<small>incl. BTW</small></div>
-              <div class="actie-price-old">€399</div>
+              <div class="actie-price-old">€449</div>
               <div class="actie-price-save">BESPAAR €130</div>
             </div>
             <div class="actie-btn-row">
@@ -904,6 +972,304 @@ footer nav a:hover { color: white; }
         <div class="actie-meta-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Levering binnen 10 werkdagen</div>
         <div class="actie-meta-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Gratis verzending in België</div>
         <div class="actie-meta-item"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg> Persoonlijk ontwerpadvies</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRODUCT SPECS -->
+  <section class="specs-section">
+    <div class="container">
+      <div class="specs-header anim">
+        <div class="section-label" style="justify-content:center;display:flex;">Wat zit er in een pakket?</div>
+        <h2>Productspecificaties</h2>
+        <p>Onze actiepakketten gebruiken vaste B&amp;C modellen en standaard bedrukkingsformaten. Wens je een ander model, kleur of grotere bedrukking? Vraag gerust een <a href="#" onclick="navigate('offerte');return false;" style="color:var(--primary);text-decoration:underline;text-underline-offset:2px;">offerte op maat</a>.</p>
+      </div>
+
+      <!-- Modellen + Bedrukking -->
+      <div class="specs-top-grid">
+        <div class="spec-card anim">
+          <div class="spec-card-head">
+            <div class="spec-card-icon">
+              <svg viewBox="0 0 24 24"><path d="M16 4l4 2v5l-3-1v10H7V10L4 11V6l4-2"/><path d="M9 4a3 3 0 006 0"/></svg>
+            </div>
+            <h3>Vaste modellen</h3>
+          </div>
+          <div class="model-list">
+            <div class="model-row"><span class="model-name">T-shirt</span><span class="model-code">B&amp;C E190</span></div>
+            <div class="model-row"><span class="model-name">Sweater</span><span class="model-code">B&amp;C ID.222</span></div>
+            <div class="model-row"><span class="model-name">Hoodie</span><span class="model-code">B&amp;C ID.223</span></div>
+            <div class="model-row"><span class="model-name">Polo</span><span class="model-code">B&amp;C ID.001</span></div>
+          </div>
+        </div>
+
+        <div class="spec-card anim">
+          <div class="spec-card-head">
+            <div class="spec-card-icon">
+              <svg viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 9h6v6H9z"/></svg>
+            </div>
+            <h3>Bedrukkingsformaten</h3>
+          </div>
+          <div class="print-rules">
+            <div class="print-rule">
+              <div class="print-rule-loc">
+                <svg viewBox="0 0 32 32"><path d="M10 6l-4 2v8l3-1v15h14V15l3 1V8l-4-2"/><path d="M12 6a4 4 0 008 0"/><circle cx="11" cy="13" r="1.6" fill="currentColor" stroke="none"/></svg>
+              </div>
+              <div class="print-rule-text">
+                <strong>Linkerborst — max 100 cm²</strong>
+                <p>Klein logo of monogram, ideaal voor een subtiele branding.</p>
+              </div>
+            </div>
+            <div class="print-rule">
+              <div class="print-rule-loc">
+                <svg viewBox="0 0 32 32"><path d="M10 6l-4 2v8l3-1v15h14V15l3 1V8l-4-2"/><path d="M12 6a4 4 0 008 0"/><rect x="11" y="12" width="10" height="11" rx="1" fill="currentColor" stroke="none" opacity=".25"/></svg>
+              </div>
+              <div class="print-rule-text">
+                <strong>Rug — max 550 cm²</strong>
+                <p>Grote opdruk voor maximale zichtbaarheid van je merk.</p>
+              </div>
+            </div>
+          </div>
+          <div class="print-note"><strong>Groter formaat nodig?</strong> Vergroten is mogelijk tegen een meerprijs — vraag ons gerust naar een offerte op maat.</div>
+        </div>
+      </div>
+
+      <!-- Maattabellen -->
+      <div class="specs-block anim">
+        <h3 class="specs-block-title">Maattabellen</h3>
+        <p class="specs-block-sub">Alle maten in centimeter. Twijfel je tussen twee maten? Neem de grootste — een ruimere pasvorm zit altijd lekkerder.</p>
+        <div class="size-grid">
+          <div class="size-card">
+            <div class="size-card-head"><strong>T-shirt</strong><span>B&amp;C E190</span></div>
+            <div class="size-card-body">
+              <div class="size-diagram" aria-hidden="true">
+                <svg viewBox="0 0 160 150">
+                  <!-- T-shirt outline (V-neck, short sleeves) -->
+                  <path class="gshape" d="M42 28 L62 18 L72 30 L80 38 L88 30 L98 18 L118 28 L138 40 L122 56 L108 50 L108 132 L52 132 L52 50 L38 56 L22 40 Z"/>
+                  <!-- V-neck inside -->
+                  <path class="gshape" d="M62 18 L80 38 L98 18"/>
+                  <!-- A line (width) -->
+                  <line class="gline" x1="56" y1="82" x2="104" y2="82"/>
+                  <polygon points="56,82 61,79 61,85" fill="#9a9aaa"/>
+                  <polygon points="104,82 99,79 99,85" fill="#9a9aaa"/>
+                  <text class="gtext" x="80" y="78" text-anchor="middle">A</text>
+                  <!-- B line (length, on right side) -->
+                  <line class="gline" x1="148" y1="28" x2="148" y2="132"/>
+                  <polygon points="148,28 145,33 151,33" fill="#9a9aaa"/>
+                  <polygon points="148,132 145,127 151,127" fill="#9a9aaa"/>
+                  <text class="gtext" x="156" y="83" text-anchor="middle">B</text>
+                </svg>
+              </div>
+              <div class="size-table-wrap">
+              <table class="size-table">
+                <thead>
+                  <tr><th></th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>2XL</th><th>3XL</th><th>4XL</th><th>5XL</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><span class="label-letter">A</span>Halve borst</td><td>47</td><td>50</td><td>53</td><td>56</td><td>59</td><td>62</td><td>65</td><td>70</td><td>75</td></tr>
+                  <tr><td><span class="label-letter">B</span>Lengte</td><td>68</td><td>70</td><td>72</td><td>74</td><td>76</td><td>78</td><td>80</td><td>82</td><td>84</td></tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+          <div class="size-card">
+            <div class="size-card-head"><strong>Sweater &amp; Hoodie</strong><span>B&amp;C ID.222 / ID.223</span></div>
+            <div class="size-card-body">
+              <div class="size-diagram" aria-hidden="true">
+                <svg viewBox="0 0 160 150">
+                  <!-- Sweater outline (crew neck, long sleeves with cuffs) -->
+                  <path class="gshape" d="M58 28 Q70 36 82 36 Q94 36 102 28 L110 28 L138 88 L126 100 L114 68 L114 132 L46 132 L46 68 L34 100 L22 88 L50 28 Z"/>
+                  <!-- Crew neck line (inner) -->
+                  <path class="gshape" d="M62 28 Q72 32 80 32 Q88 32 98 28"/>
+                  <!-- Left cuff bar -->
+                  <path class="gshape" d="M22 88 L34 100"/>
+                  <!-- Right cuff bar -->
+                  <path class="gshape" d="M138 88 L126 100"/>
+                  <!-- A line -->
+                  <line class="gline" x1="50" y1="92" x2="110" y2="92"/>
+                  <polygon points="50,92 55,89 55,95" fill="#9a9aaa"/>
+                  <polygon points="110,92 105,89 105,95" fill="#9a9aaa"/>
+                  <text class="gtext" x="80" y="88" text-anchor="middle">A</text>
+                  <!-- B line -->
+                  <line class="gline" x1="148" y1="28" x2="148" y2="132"/>
+                  <polygon points="148,28 145,33 151,33" fill="#9a9aaa"/>
+                  <polygon points="148,132 145,127 151,127" fill="#9a9aaa"/>
+                  <text class="gtext" x="156" y="83" text-anchor="middle">B</text>
+                </svg>
+              </div>
+              <div class="size-table-wrap">
+              <table class="size-table">
+                <thead>
+                  <tr><th></th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>2XL</th><th>3XL</th><th>4XL</th><th>5XL</th></tr>
+                </thead>
+                <tbody>
+                  <tr><td><span class="label-letter">A</span>Halve borst</td><td>51</td><td>54</td><td>57,5</td><td>61</td><td>64,5</td><td>68</td><td>72</td><td>76</td><td>80</td></tr>
+                  <tr><td><span class="label-letter">B</span>Lengte</td><td>67</td><td>69</td><td>71</td><td>73</td><td>75</td><td>77</td><td>78</td><td>79</td><td>80</td></tr>
+                </tbody>
+              </table>
+              </div>
+            </div>
+          </div>
+          <div class="size-card">
+            <div class="size-card-head"><strong>Polo</strong><span>B&amp;C ID.001 — PU I10</span></div>
+            <div class="size-card-body">
+              <div class="size-diagram" aria-hidden="true">
+                <svg viewBox="0 0 160 150">
+                  <!-- Polo outline (body + short sleeves) -->
+                  <path class="gshape" d="M42 32 L62 22 L72 32 L80 40 L88 32 L98 22 L118 32 L138 44 L122 60 L108 54 L108 132 L52 132 L52 54 L38 60 L22 44 Z"/>
+                  <!-- Pointed collar - left flap -->
+                  <path class="gshape" d="M62 22 L66 36 L80 40"/>
+                  <!-- Pointed collar - right flap -->
+                  <path class="gshape" d="M98 22 L94 36 L80 40"/>
+                  <!-- Placket vertical line -->
+                  <line class="gshape" x1="80" y1="40" x2="80" y2="62"/>
+                  <!-- Placket button dot 1 -->
+                  <circle cx="80" cy="48" r="1.2" fill="#0f0f12"/>
+                  <!-- Placket button dot 2 -->
+                  <circle cx="80" cy="58" r="1.2" fill="#0f0f12"/>
+                  <!-- A line -->
+                  <line class="gline" x1="56" y1="86" x2="104" y2="86"/>
+                  <polygon points="56,86 61,83 61,89" fill="#9a9aaa"/>
+                  <polygon points="104,86 99,83 99,89" fill="#9a9aaa"/>
+                  <text class="gtext" x="80" y="82" text-anchor="middle">A</text>
+                  <!-- B line -->
+                  <line class="gline" x1="148" y1="32" x2="148" y2="132"/>
+                  <polygon points="148,32 145,37 151,37" fill="#9a9aaa"/>
+                  <polygon points="148,132 145,127 151,127" fill="#9a9aaa"/>
+                  <text class="gtext" x="156" y="85" text-anchor="middle">B</text>
+                </svg>
+              </div>
+              <div class="size-table-wrap">
+                <table class="size-table">
+                  <thead>
+                    <tr><th></th><th>XS</th><th>S</th><th>M</th><th>L</th><th>XL</th><th>2XL</th><th>3XL</th><th>4XL</th></tr>
+                  </thead>
+                  <tbody>
+                    <tr><td><span class="label-letter">A</span>Halve borst</td><td>45,5</td><td>49</td><td>52,5</td><td>56</td><td>59,5</td><td>63</td><td>66,5</td><td>70</td></tr>
+                    <tr><td><span class="label-letter">B</span>Lengte</td><td>67</td><td>69,5</td><td>72</td><td>74,5</td><td>77</td><td>79,5</td><td>82</td><td>84,5</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kleuren T-shirt -->
+      <div class="specs-block anim">
+        <h3 class="specs-block-title">Kleuren — T-shirt <span style="font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0;">B&amp;C E190</span></h3>
+        <p class="specs-block-sub">40 standaardkleuren beschikbaar.</p>
+        <div class="color-grid">
+          <div class="color-swatch"><div class="color-chip" style="background:#F2A92F;"></div><span>Apricot</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#D2D4D3;"></div><span>Ash (Heather)</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1B95C6;"></div><span>Atoll</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#0A0A0A;"></div><span>Black</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#0F3F26;"></div><span>Bottle Green</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#4B2D1F;"></div><span>Brown</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#5B1F35;"></div><span>Burgundy</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#6B4A2E;"></div><span>Chocolate</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#243A60;"></div><span>Cobalt Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#2C313A;"></div><span>Dark Grey</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#0F7EB4;"></div><span>Diva Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#E5161B;"></div><span>Fire Red</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#F4C530;"></div><span>Gold</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#3CA055;"></div><span>Kelly Green</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#C9A9C7;"></div><span>Millennial Lilac</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#C5E8D6;"></div><span>Millennial Mint</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#ECE3D2;"></div><span>Natural</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1C2840;"></div><span>Navy</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1B3A6A;"></div><span>Navy Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#E55B1A;"></div><span>Orange</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#92B83A;"></div><span>Orchid Green</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#F4D0D9;"></div><span>Orchid Pink</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#828896;"></div><span>Pacific Grey</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#D9F22A;"></div><span>Pixel Lime</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#3A0E5B;"></div><span>Radiant Purple</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#D81B23;"></div><span>Red</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1E4F9E;"></div><span>Royal Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#DACEB4;"></div><span>Sand</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#7BB3D8;"></div><span>Sky Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#F4E331;"></div><span>Solar Yellow</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#D81574;"></div><span>Sorbet</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#B8B8B8;"></div><span>Sport Grey</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#2E5A6F;"></div><span>Stone Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#DD431D;"></div><span>Sunset Orange</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1B7BB1;"></div><span>Swimming Pool</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#6F6041;"></div><span>Urban Khaki</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#C8521F;"></div><span>Urban Orange</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#2A1B36;"></div><span>Urban Purple</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#2A2A2A;"></div><span>Used Black</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#FFFFFF;"></div><span>White</span></div>
+        </div>
+        <div class="color-restriction">
+          <strong>Let op bij maten 4XL &amp; 5XL</strong>
+          In deze grote maten is het assortiment beperkt tot 6 kleuren:
+          <div class="color-restriction-chips">
+            <span class="mini-chip"><span class="mini-dot" style="background:#FFFFFF;"></span>White</span>
+            <span class="mini-chip"><span class="mini-dot" style="background:#0A0A0A;"></span>Black</span>
+            <span class="mini-chip"><span class="mini-dot" style="background:#1C2840;"></span>Navy</span>
+            <span class="mini-chip"><span class="mini-dot" style="background:#B8B8B8;"></span>Sport Grey</span>
+            <span class="mini-chip"><span class="mini-dot" style="background:#1E4F9E;"></span>Royal Blue</span>
+            <span class="mini-chip"><span class="mini-dot" style="background:#D81B23;"></span>Red</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kleuren Sweater & Hoodie -->
+      <div class="specs-block anim">
+        <h3 class="specs-block-title">Kleuren — Sweater &amp; Hoodie <span style="font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0;">B&amp;C ID.222 / ID.223</span></h3>
+        <p class="specs-block-sub">12 kleuren beschikbaar — identiek voor beide modellen.</p>
+        <div class="color-grid">
+          <div class="color-swatch"><div class="color-chip" style="background:#C9D62F;"></div><span>Acid Lime</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#0A0A0A;"></div><span>Black</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#5B1F35;"></div><span>Burgundy</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#2C313A;"></div><span>Dark Grey</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#0F3F26;"></div><span>Forest Green</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#3B8FCB;"></div><span>Lake Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1C2840;"></div><span>Navy</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#E55B1A;"></div><span>Orange</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#D81B23;"></div><span>Red</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1E4F9E;"></div><span>Royal Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#B8B8B8;"></div><span>Sport Grey</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#FFFFFF;"></div><span>White</span></div>
+        </div>
+        <div class="color-restriction">
+          <strong>Let op bij maten 4XL &amp; 5XL</strong>
+          In deze grote maten zijn enkel deze 3 kleuren beschikbaar:
+          <div class="color-restriction-chips">
+            <span class="mini-chip"><span class="mini-dot" style="background:#B8B8B8;"></span>Sport Grey</span>
+            <span class="mini-chip"><span class="mini-dot" style="background:#0A0A0A;"></span>Black</span>
+            <span class="mini-chip"><span class="mini-dot" style="background:#1C2840;"></span>Navy</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Kleuren Polo -->
+      <div class="specs-block anim">
+        <h3 class="specs-block-title">Kleuren — Polo <span style="font-size:13px;font-weight:500;color:var(--muted);letter-spacing:0;">B&amp;C ID.001</span></h3>
+        <p class="specs-block-sub">20 kleuren beschikbaar — alle kleuren zijn beschikbaar tot en met 4XL.</p>
+        <div class="color-grid">
+          <div class="color-swatch"><div class="color-chip" style="background:#3A3A3C;"></div><span>Anthracite</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1B95C6;"></div><span>Atoll</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#0A0A0A;"></div><span>Black</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#0F3F26;"></div><span>Bottle Green</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#4B2D1F;"></div><span>Brown</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#F4B61C;"></div><span>Chili Gold</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#D81574;"></div><span>Fuchsia</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#C6C6C6;"></div><span>Heather Grey</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1F8C3D;"></div><span>Kelly Green</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#A4CCE6;"></div><span>Light Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1C2840;"></div><span>Navy</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#E55B1A;"></div><span>Orange</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#F26A60;"></div><span>Pixel Coral</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#5C1D5E;"></div><span>Purple</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#3DA541;"></div><span>Real Green</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#D81B23;"></div><span>Red</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#1E4F9E;"></div><span>Royal Blue</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#DACEB4;"></div><span>Sand</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#FFFFFF;"></div><span>White</span></div>
+          <div class="color-swatch"><div class="color-chip" style="background:#5B1F35;"></div><span>Wine</span></div>
+        </div>
       </div>
     </div>
   </section>
@@ -988,7 +1354,7 @@ footer nav a:hover { color: white; }
           <p class="contact-info-heading">Contactgegevens</p>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></div><div><strong>Adres</strong><p>Hombeeksesteenweg 354<br>2800 Mechelen, België</p></div></div>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12a19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 3.6 1.27h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.91a16 16 0 0 0 6 6l1-1a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg></div><div><strong>Telefoon</strong><a href="tel:+32497363487">+32 497 36 34 87</a></div></div>
-          <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><strong>E-mail</strong><a href="/cdn-cgi/l/email-protection#83eaede5ecc3e6f2f6eaf3f1eaedf7f0ade1e6"><span class="__cf_email__" data-cfemail="61080f070e21041014081113080f15124f0304">[email&#160;protected]</span></a></div></div>
+          <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div><div><strong>E-mail</strong><a href="/cdn-cgi/l/email-protection#ea83848c85aa8f9b9f839a9883849e99c4888f"><span class="__cf_email__" data-cfemail="85ecebe3eac5e0f4f0ecf5f7ecebf1f6abe7e0">[email&#160;protected]</span></a></div></div>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><div><strong>Openingsuren</strong><p>Ma – Vr: 9:00 – 17:00<br>Za: Op afspraak<br>Zo: Gesloten</p></div></div>
           <div class="contact-item"><div class="contact-item-icon"><svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg></div><div><strong>Instagram</strong><a href="https://www.instagram.com/eq.ui_prints" target="_blank">@eq.ui_prints</a></div></div>
         </div>
@@ -1081,7 +1447,7 @@ footer nav a:hover { color: white; }
         <ul>
           <li><strong>Bedrijfsnaam:</strong> Equi Prints</li>
           <li><strong>Website:</strong> www.equiprints.be</li>
-          <li><strong>Contactadres:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="9bf2f5fdf4dbfeeaeef2ebe9f2f5efe8b5f9fe">[email&#160;protected]</a></li>
+          <li><strong>Contactadres:</strong> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="422b2c242d022733372b32302b2c36316c2027">[email&#160;protected]</a></li>
         </ul>
       </div>
 
@@ -1149,7 +1515,7 @@ footer nav a:hover { color: white; }
           <li><strong>Recht op gegevensoverdraagbaarheid:</strong> u kunt uw gegevens opvragen in een gestructureerd, leesbaar formaat</li>
           <li><strong>Recht om toestemming in te trekken:</strong> voor verwerkingen gebaseerd op toestemming kunt u deze op elk moment intrekken</li>
         </ul>
-        <p>Om uw rechten uit te oefenen, kunt u contact met ons opnemen via <a href="/cdn-cgi/l/email-protection#b7ded9d1d8f7d2c6c2dec7c5ded9c3c499d5d2" style="color:var(--primary);"><span class="__cf_email__" data-cfemail="11787f777e51746064786163787f65623f7374">[email&#160;protected]</span></a>. Wij reageren binnen 30 dagen op uw verzoek.</p>
+        <p>Om uw rechten uit te oefenen, kunt u contact met ons opnemen via <a href="/cdn-cgi/l/email-protection#dbb2b5bdb49bbeaaaeb2aba9b2b5afa8f5b9be" style="color:var(--primary);"><span class="__cf_email__" data-cfemail="eb82858d84ab8e9a9e829b9982859f98c5898e">[email&#160;protected]</span></a>. Wij reageren binnen 30 dagen op uw verzoek.</p>
       </div>
 
       <div class="legal-card">
@@ -1194,7 +1560,7 @@ footer nav a:hover { color: white; }
         <h2>13. Contact</h2>
         <p>Heeft u vragen of opmerkingen over dit privacybeleid of over de manier waarop wij uw persoonsgegevens verwerken? Neem dan contact met ons op:</p>
         <ul>
-          <li><strong>E-mail:</strong> <a href="/cdn-cgi/l/email-protection#127b7c747d527763677b62607b7c66613c7077" style="color:var(--primary);"><span class="__cf_email__" data-cfemail="caa3a4aca58aafbbbfa3bab8a3a4beb9e4a8af">[email&#160;protected]</span></a></li>
+          <li><strong>E-mail:</strong> <a href="/cdn-cgi/l/email-protection#ec85828a83ac899d99859c9e8582989fc28e89" style="color:var(--primary);"><span class="__cf_email__" data-cfemail="234a4d454c634652564a53514a4d57500d4146">[email&#160;protected]</span></a></li>
           <li><strong>Website:</strong> www.equiprints.be</li>
         </ul>
       </div>
@@ -1255,7 +1621,7 @@ footer nav a:hover { color: white; }
         <h4>Contact</h4>
         <div class="footer-contact-item">Hombeeksesteenweg 354<br>2800 Mechelen</div>
         <div class="footer-contact-item"><a href="tel:+32497363487" style="color:inherit;text-decoration:none;">+32 497 36 34 87</a></div>
-        <div class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#731a1d151c331602061a03011a1d07005d1116" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="7910171f16391c080c10090b10170d0a571b1c">[email&#160;protected]</span></a></div>
+        <div class="footer-contact-item"><a href="/cdn-cgi/l/email-protection#a0c9cec6cfe0c5d1d5c9d0d2c9ced4d38ec2c5" style="color:inherit;text-decoration:none;"><span class="__cf_email__" data-cfemail="d1b8bfb7be91b4a0a4b8a1a3b8bfa5a2ffb3b4">[email&#160;protected]</span></a></div>
       </div>
       <div>
         <h4>Openingsuren</h4>
