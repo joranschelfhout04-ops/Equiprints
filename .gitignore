@@ -1,1 +1,8 @@
 eq-2/index.html
+
+# wrangler files
+.wrangler
+.dev.vars*
+!.dev.vars.example
+.env*
+!.env.example
